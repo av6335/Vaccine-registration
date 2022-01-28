@@ -1,0 +1,190 @@
+#include<stdio.h>
+#include <stdlib.h>
+#include<time.h>
+#include<string.h>
+
+
+int main()
+{
+
+    printf("                Welcome to                  \n");
+    printf("Online  Vaccine Registration System\n\n\n");
+
+    while(1){
+
+    int finalChoice;
+    FILE *file;
+    file = fopen("listOfApplicant.txt","w");
+
+    printf(" _____________\n");
+    printf("|      Identity verification:       |\n");
+    printf("|                                   |\n");
+    printf("| 1. Citizen registration           |\n");
+    printf("|_____________|\n\n");
+
+    char choice;
+
+    printf("Enter your choice: ");
+    scanf("%c",&choice);
+    getchar();
+    printf("\n");
+
+
+    switch(choice)
+    {
+
+    case '1':
+    {
+        char aadhaar[15];
+        char date[5];
+        char month[12];
+        char year[5];
+        char name1[20];
+        char name2[20];
+        char housenumber[20];
+        char streetname[20];
+        char area[15];
+        char city[15];
+        int phone1[11];
+        int phone2[11];
+
+
+        printf(" _____________ \n");
+        printf("|Selected type: Citizen registration|\n");
+        printf("|_____________|\n\n");
+
+
+        printf("Please enter your AADHAAR CARD number: ");
+        gets(aadhaar);
+        
+
+
+
+        fputs("Name of the applicant: ",file);
+        printf("First Name: ");
+        gets(name1);
+        fputs(name1,file);
+        fputs(" ",file);
+        printf("Last Name: ");
+        gets(name2);
+        fputs(name2,file);
+
+
+
+        printf("\nDate of birth(according to AADHAAR CARD): \n");
+        printf("Year: ");
+        gets(year);
+        printf("Month: ");
+        gets(month);
+        printf("Date: ");
+        gets(date);
+        fputs("\nDate of birth: ",file);
+        fputs(date,file);
+        fputs("/",file);
+        fputs(month,file);
+        fputs("/",file);
+        fputs(year,file);
+
+
+
+
+        printf("\nPresent address:\n");
+        printf("House number: ");
+        gets(housenumber);
+        printf("Street name: ");
+        gets(streetname);
+        printf("Area: ");
+        gets(area);
+        printf("City: ");
+        gets(city);
+        fputs("\nYour center for vaccination: ",file);
+        fputs(" Govt. Medical Hospital, ",file);
+        fputs(city,file);
+        fputs(", Tamil Nadu",file);
+
+
+        while(1)
+        {
+            printf("\n\nEnter your  phone number: ");
+            scanf("%d",&phone1);
+            printf("Re-enter your  phone number: ");
+            scanf("%d",&phone2);
+
+            if(phone1==phone2)
+            {
+                break;
+            }
+            else  if((scanf("%[0-9]c%[0-9]c%[0-9]c%[0-9]c%[0-9]c" 
+            "%[0-9]c%[0-9]c%[0-9]c%[0-9]c%[0-9]c%[0-9]c", 
+            &num[0], &num[1], &num[2], &num[3], &num[4], 
+            &num[5], &num[6], &num[7], &num[8], &num[9], 
+            &num[10]) != 10) { 
+            char *ptr = NULL; 
+            ++*ptr;  // Undefined behavior. 
+  
+ 
+             num[10] = '\0';
+              printf("\n\nYou have entered a wrong number, please try again carefully and make sure its 10 digits.");
+             }
+
+            fclose(file);
+
+            printf("\n\n\n----------------------------------------------------------------------------------------------\n");
+            printf("----------------------------------------------------------------------------------------------\n");
+            printf("----------------------------------------------------------------------------------------------\n");
+            printf("                                   YOUR VACCINATION FORM                                      \n\n\n");
+
+           file = fopen("listOfApplicant.txt","r");
+           char ch;
+
+            while(!feof(file)){
+                ch = fgetc(file);
+                printf("%c",ch);
+            }
+
+            fclose(file);
+
+            printf("\nSerial Number: %d",rand());
+            printf("\n\nThe date and time of your vaccination will be soon notify via SMS in the number you provided.\n");
+            printf("                            till then STAY SAFE, STAY HOME!                                   \n");
+            printf("\n\n\n----------------------------------------------------------------------------------------------\n");
+            printf("----------------------------------------------------------------------------------------------\n");
+            printf("----------------------------------------------------------------------------------------------\n\n\n");
+
+        break;
+
+
+            }
+
+
+    }
+
+
+
+    if(choice=='1' || choice=='2' ){
+            printf("\nI hereby, declaring that all the information I have given above is correct:-\n");
+            printf("\n1.Confirm and save(To finish the registration)\n");
+            printf("2.Cancel(If you found any mistakes regarding your information in the form)\n");
+            printf("\nEnter your choice: ");
+            scanf("%d",&finalChoice);
+            getchar();
+
+            if(finalChoice == 1){
+                printf("\n\n\n\n\n\n_________________________________\n");
+                printf("|                                                                                            |\n");
+                printf("|            Congratulations! Your registration has been completed successfully.             |\n");
+                printf("|                               ©Developed by Ananya Vijayakumar                              |\n");
+                printf("|________________________________|\n");
+                break;
+            }
+            else{
+                printf("\n\nPlease be careful in this time while giving your information\n\n");
+
+            }
+    }
+
+    }
+
+
+    return 0;
+}
